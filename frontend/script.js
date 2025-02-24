@@ -271,7 +271,7 @@ async function previewFile(filePath) {
 
     if (['png', 'jpg', 'jpeg', 'gif'].includes(fileExt)) {
         previewWindow.document.body.innerHTML = `<img src="${previewUrl}" style="max-width:100%;">`;
-    } else if (['mp4', 'webm', 'ogg'].includes(fileExt)) {
+    } else if (['mp3', 'mp4', 'webm', 'ogg'].includes(fileExt)) {
         previewWindow.document.body.innerHTML = `
             <video id="previewVideo" controls autoplay style="max-width:100%;">
                 <source src="${previewUrl}" type="video/${fileExt === 'ogg' ? 'ogg' : 'mp4'}">
@@ -295,7 +295,7 @@ async function previewFile(filePath) {
         }
     } else if (fileExt === 'pdf') {
         previewWindow.document.body.innerHTML = `<embed src="${previewUrl}" type="application/pdf" width="100%" height="100%">`;
-    } else if (['txt', 'log', 'json', 'js', 'css', 'html'].includes(fileExt)) {
+    } else if (['txt', 'log', 'json', 'js', 'css', 'html', 'cpp','c'].includes(fileExt)) {
         try {
             const response = await fetch(previewUrl);
             const text = await response.text();
